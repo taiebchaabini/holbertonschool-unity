@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Name
-      value: 'Green Ball '
+      value: Green Ball
       objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
@@ -297,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Name
-      value: 'Red Ball '
+      value: Red Ball
       objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Name
-      value: 'White Ball '
+      value: White Ball
       objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
@@ -621,7 +621,7 @@ PrefabInstance:
     - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Name
-      value: 'Blue Ball '
+      value: Blue Ball
       objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
@@ -695,7 +695,7 @@ PrefabInstance:
     - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Name
-      value: 'Black Ball '
+      value: Black Ball
       objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
