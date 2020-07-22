@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 640277496420888043, guid: 8a3450d41bcef604ab784e3b43966fa3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacles
-      objectReference: {fileID: 0}
     - target: {fileID: 640277496420888045, guid: 8a3450d41bcef604ab784e3b43966fa3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
