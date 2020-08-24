@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
     // Shows victory or lose
     private GameObject WinLoseBG;
     // Start is called before the first frame update
+    // Determines player horizontal movement
+    private float horMovement;
+    // Determines player vertical movement
+    private float verMovement;
+
     void Start()
     {
       WinLoseBG = GameObject.Find("Canvas").transform.GetChild(2).gameObject;
@@ -38,23 +43,31 @@ public class PlayerController : MonoBehaviour
         }
         SetScoreText();
         SetHealthText();
+        horMovement = Input.GetAxis("Horizontal");
+        if (horMovement < 0) {
+            horMovement = -1; 
+        } else if(horMovement > 0) {
+            horMovement = 1;
+        }
+        verMovement = Input.GetAxis("Vertical");
+        if (verMovement < 0) {
+            verMovement = -1; }
+        else if (verMovement > 0){
+            verMovement = 1;
+        }
     }
     // FixedUpdate has the frequency of the physics system; it is called every fixed frame-rate frame
     void FixedUpdate()
     {
-        if ( Input.GetKey("w")){
-            rb.AddForce(0, 0, sideWayForce * speed * Time.deltaTime);
+    
+        if ( verMovement != 0){
+            rb.AddForce(0, 0, (verMovement * sideWayForce) * speed * Time.deltaTime);
         }
-        if ( Input.GetKey("s")){
-            rb.AddForce(0, 0, -sideWayForce * speed * Time.deltaTime);
-        }
-        if ( Input.GetKey("d")){
-            rb.AddForce(sideWayForce * speed * Time.deltaTime, 0, 0);
-        }
-        if ( Input.GetKey("a")){
-            rb.AddForce(-sideWayForce * speed * Time.deltaTime, 0, 0);
+        if ( horMovement != 0 ){
+            rb.AddForce((horMovement * sideWayForce) * speed * Time.deltaTime, 0, 0);
         }
     }
+
 
     // Increments the value of score when the Player touches an object tagged Pickup
     void OnTriggerEnter(Collider other){
@@ -72,6 +85,14 @@ public class PlayerController : MonoBehaviour
             WinLoseBG.GetComponent<Image>().color = Color.green;
             StartCoroutine(LoadScene(3));
         }
+    }
+
+    /// <summary>
+    /// Getter for the SideWayForce variable.
+    /// </summary>
+    /// <returns>returns value of the SideWayForce</returns>
+    public float getSideWayForce(){
+        return sideWayForce;
     }
 
     /// <summary>

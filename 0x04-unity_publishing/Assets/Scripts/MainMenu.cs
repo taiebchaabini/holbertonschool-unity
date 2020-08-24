@@ -18,6 +18,13 @@ public class MainMenu : MonoBehaviour
     /// Color blind mode
     /// </summary>
     public Toggle colorblindMode;
+
+    /// <summary>
+    /// Loads the menu instead of current scene.
+    /// </summary>
+    public void LoadMenu(){
+        SceneManager.LoadScene("menu");
+    }
     /// <summary>
     /// Starts the game 
     /// </summary>
