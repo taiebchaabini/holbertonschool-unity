@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 16.0f;
     // Checks if the player is grounded or not (used for jump)
     private bool isGrounded;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
     }
+
 
     // Update is called each frame
     void Update(){
@@ -29,20 +32,8 @@ public class PlayerController : MonoBehaviour
            
     }
 
-    // When the player collide with another object
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.transform.parent.name == "Platforms"){
-            isGrounded = true;
-        }
-    }
-    
-    // When the player gets out of a collission
-    void OnCollisionExit(Collision collision) {
-            isGrounded = false;
-    }
 
-    // Fixedupdate is called according to framerate
+    // FixedUpdate is called according to framerate
     void FixedUpdate()
     {
         float translationX = Input.GetAxis("Horizontal") * speed;
@@ -61,4 +52,21 @@ public class PlayerController : MonoBehaviour
         }
             
     }
+
+
+    // Fired when the player collide with another object
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.transform.parent.name == "Platforms"){
+            isGrounded = true;
+        }
+    }
+    
+
+    // Fired when the player gets out of a collission
+    void OnCollisionExit(Collision collision) {
+            isGrounded = false;
+    }
+
+  
 }
