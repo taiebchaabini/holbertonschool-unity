@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Controls player speed
+    /// <summary>
+    /// Controls player speed
+    /// </summary>
     public float speed = 10.0f;
     // Rigidbody of the player
     private Rigidbody rb;
-    // Force of player jump
+    /// <summary>
+    /// Force of player jump
+    /// </summary>
     public float jumpForce = 16.0f;
     // Checks if the player is grounded or not (used for jump)
     private bool isGrounded;
