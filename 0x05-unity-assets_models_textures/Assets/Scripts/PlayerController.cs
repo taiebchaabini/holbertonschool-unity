@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         float translationX = Input.GetAxis("Horizontal") * speed;
         float translationZ = Input.GetAxis("Vertical") * speed;
 
+
         translationX *= Time.deltaTime;
         translationZ *= Time.deltaTime;
 
