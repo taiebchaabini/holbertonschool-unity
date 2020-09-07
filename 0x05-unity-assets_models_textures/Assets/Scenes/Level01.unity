@@ -3115,6 +3115,10 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5643867530552000566, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
+      propertyPath: m_Name
+      value: TimerText
+      objectReference: {fileID: 0}
     - target: {fileID: 8417885504363600440, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
