@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     // Update is called each frame
     void Update(){
+        if (transform.position.y < -20){
+            transform.position = (new Vector3(0,20f,0));
+            transform.rotation = Quaternion.identity;
+        }
         if (Input.GetKeyDown(KeyCode.Space)){
             if (isGrounded){
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
