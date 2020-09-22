@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 439142901196448226}
   - component: {fileID: 439142901196448229}
   - component: {fileID: 439142901196448228}
-  - component: {fileID: 439142901196448224}
+  - component: {fileID: 27786688638052655}
   m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &439142901196448224
+--- !u!114 &27786688638052655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 439142901196448231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90fa536e7f327341a1454ecd3cc98c4, type: 3}
+  m_Script: {fileID: 11500000, guid: b75021141b2dc024aadabd0f1452ed63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &439142901741357598
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 439142901196448224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Options
         m_Mode: 1
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 439142901196448224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 439142901196448224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 439142901196448224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
