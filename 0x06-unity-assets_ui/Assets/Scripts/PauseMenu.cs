@@ -36,6 +36,15 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1;
         this.GetComponent<Canvas>().enabled  = false;
+        /*
+        Debug.Log(PlayerPrefs.GetString("__isInveted__"));
+
+        if (GameObject.Find("Player") && PlayerPrefs.GetString("__isInverted__") == "true"){
+            GameObject.Find("Player").transform.GetChild(0).GetComponent<CameraController>().isInverted = true;
+        } else if( GameObject.Find("Player") ){
+            GameObject.Find("Player").transform.GetChild(0).GetComponent<CameraController>().isInverted = true;
+        }
+        */
     }
     /// <summary>
     /// Restart the game.

@@ -18,6 +18,9 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cameraPos = transform.localPosition;
+        if (PlayerPrefs.GetString("__isInverted__") == "true"){
+          isInverted = true;
+        }
     }
 
     // Update is called once per frame
