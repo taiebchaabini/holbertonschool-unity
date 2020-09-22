@@ -50,12 +50,14 @@ public class PauseMenu : MonoBehaviour
     /// Load the main menu.
     /// </summary>
     public void MainMenu(){
+        Resume();
         SceneManager.LoadScene("MainMenu");
     }
     /// <summary>
     /// Loads the options.
     /// </summary>
     public void Options(){
+        Resume();
         SceneManager.LoadScene("Options");
     }
     
