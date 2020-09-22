@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -35,6 +36,27 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1;
         this.GetComponent<Canvas>().enabled  = false;
+    }
+    /// <summary>
+    /// Restart the game.
+    /// </summary>
+    public void Restart(){
+        Scene currentLevel = SceneManager.GetActiveScene();
+        Resume();
+        SceneManager.LoadScene(currentLevel.buildIndex);
+    }
+
+    /// <summary>
+    /// Load the main menu.
+    /// </summary>
+    public void MainMenu(){
+        SceneManager.LoadScene("MainMenu");
+    }
+    /// <summary>
+    /// Loads the options.
+    /// </summary>
+    public void Options(){
+        SceneManager.LoadScene("Options");
     }
     
 }
