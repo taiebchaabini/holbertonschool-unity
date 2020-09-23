@@ -41,4 +41,11 @@ public class Timer : MonoBehaviour
         TimerText.text = $"{minutes}:{seconds}:{milliseconds}";
 
     }
+
+    /// <summary>
+    /// Updates the WinCanvas text when the payers win.
+    /// </summary>
+    public void Win(){
+        GameObject.Find("FinalTime").GetComponent<Text>().text = TimerText.text;
+    }
 }

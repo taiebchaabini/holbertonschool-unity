@@ -11,7 +11,11 @@ public class WinTrigger : MonoBehaviour
             other.GetComponent<Timer>().TimerText.color = Color.green;
             if (other.GetComponent<Timer>().TimerText.enabled == true)
                 other.GetComponent<Timer>().enabled = false;
-                
+            if (GameObject.Find("WinCanvas").GetComponent<Canvas>().enabled == false){
+                GameObject.Find("Player").GetComponent<Timer>().Win();
+                GameObject.Find("WinCanvas").GetComponent<Canvas>().enabled = true;
+            }
+
         }
     }
 }
