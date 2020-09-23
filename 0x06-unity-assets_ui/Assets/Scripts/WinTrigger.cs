@@ -14,6 +14,7 @@ public class WinTrigger : MonoBehaviour
             if (GameObject.Find("WinCanvas").GetComponent<Canvas>().enabled == false){
                 GameObject.Find("Player").GetComponent<Timer>().Win();
                 GameObject.Find("WinCanvas").GetComponent<Canvas>().enabled = true;
+                Destroy(GameObject.Find("TimerText"));
             }
 
         }
