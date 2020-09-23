@@ -14,8 +14,10 @@ public class WinMenu : MonoBehaviour
        var currentLevel = SceneManager.GetActiveScene().name.Replace("Level0", "");
        if (currentLevel == "3"){
            MainMenu();
+       } else{
+           int nextLevel = int.Parse(currentLevel) + 2;
+           SceneManager.LoadScene(nextLevel);
        }
-       // No need to indent, build's index starts from 0 and the scene name starts from 1.
-       SceneManager.LoadScene(int.Parse(currentLevel));
+       
     }
 }
