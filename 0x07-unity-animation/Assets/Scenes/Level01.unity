@@ -5010,6 +5010,7 @@ GameObject:
   - component: {fileID: 556262217}
   - component: {fileID: 556262216}
   - component: {fileID: 556262215}
+  - component: {fileID: 556262219}
   m_Layer: 0
   m_Name: CutsceneCamera
   m_TagString: Untagged
@@ -5101,6 +5102,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556262219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556262214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50623bade5475ab4c9abfd78d4f4a697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timercanvas: {fileID: 1247074656}
 --- !u!1 &564916048
 GameObject:
   m_ObjectHideFlags: 0
@@ -10185,6 +10199,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244784808}
   m_Mesh: {fileID: 8808153506604827312, guid: efd31e37d518da0488344a70ae0d966f, type: 3}
+--- !u!1 &1247074656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8417885504363600440, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
+  m_PrefabInstance: {fileID: 6406150423331224898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1249796599
 GameObject:
   m_ObjectHideFlags: 0
@@ -17485,6 +17504,10 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 5763370734573175941}
+    - target: {fileID: 1209920540, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5763370734829766115, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -17638,6 +17661,10 @@ PrefabInstance:
     - target: {fileID: 8417885504363600440, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417885504363600440, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226ea2f8b57d6d74bb8ce76991ada106, type: 3}
