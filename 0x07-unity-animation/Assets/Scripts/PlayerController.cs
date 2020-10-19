@@ -42,10 +42,23 @@ public class PlayerController : MonoBehaviour
     // Update is called each frame
     void Update(){
         
-         anim.SetBool("isGrounded", isGrounded);
+         
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
+        if (isGrounded){
+            anim.SetBool("isFalling", false);
+        }
 
-        if (transform.position.y < -20f){
+        if (transform.position.y < -3f){
+            anim.SetBool("isFalling", true);
+            anim.SetBool("isIddle", false);
+            direction = Vector3.zero;
+        }
+      
+        
+        if (transform.position.y < -30f){
+            anim.SetBool("isIddle", true);
+            anim.SetBool("isIddle", false);
             transform.position = (new Vector3(0, 20f, 0));
             transform.rotation = Quaternion.identity;
             isGrounded = false;
