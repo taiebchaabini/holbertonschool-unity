@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour
         }
       
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space)){
-            //Debug.Log("Space used");
             if (isGrounded){
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                anim.SetTrigger("isJumping");
             }
 
             
