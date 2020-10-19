@@ -1805,6 +1805,10 @@ PrefabInstance:
       propertyPath: TimerText
       value: 
       objectReference: {fileID: 6406150423331224899}
+    - target: {fileID: 1209920537, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1209920540, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
       propertyPath: camera
       value: 

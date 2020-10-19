@@ -51,15 +51,16 @@ public class PlayerController : MonoBehaviour
 
         if (transform.position.y < -3f){
             anim.SetBool("isFalling", true);
-            anim.SetBool("isIddle", false);
+        }
+
+        if(anim.GetBool("isFalling") == true){
             direction = Vector3.zero;
+            anim.SetBool("isIddle", false);
         }
       
         
         if (transform.position.y < -30f){
-            anim.SetBool("isIddle", true);
-            anim.SetBool("isIddle", false);
-            transform.position = (new Vector3(0, 20f, 0));
+            transform.position = (new Vector3(0, 80f, 0));
             transform.rotation = Quaternion.identity;
             isGrounded = false;
         }
