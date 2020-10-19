@@ -14,7 +14,6 @@ public class CutsceneController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        this.startGame();
     }
 
     /// <summary>
