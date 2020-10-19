@@ -98,8 +98,10 @@ public class PlayerController : MonoBehaviour
         
         if (movement != Vector3.zero){
             anim.SetBool("isRunning", true);
+            anim.SetBool("isIddle", false);
         } else{
             anim.SetBool("isRunning", false);
+            anim.SetBool("isIddle", true);
         }
 
         movement = transform.TransformDirection(movement);
