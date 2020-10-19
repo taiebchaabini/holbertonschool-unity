@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Using camera gameobject
+    public GameObject camera;
+
     /// <summary>
     /// Controls player speed
     /// </summary>
     public float speed = 10.0f;
     // Rigidbody of the player
     private Rigidbody rb;
+    // Player 3D MODEL gameobject
+    private GameObject model;
     /// <summary>
     /// Force of player jump
     /// </summary>
@@ -17,12 +22,15 @@ public class PlayerController : MonoBehaviour
     // Checks if the player is grounded or not (used for jump)
     private bool isGrounded;
     Vector3 direction;
-
+    // Model rotation value (y)
+    private float modelRotationX;
+    private float modelRotationZ;
    
 
     // Start is called before the first frame update
     void Start()
     {
+        model = GameObject.Find("ty");
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
     }
@@ -30,11 +38,15 @@ public class PlayerController : MonoBehaviour
 
     // Update is called each frame
     void Update(){
+        
+        
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (transform.position.y < -20f){
-            transform.position = (new Vector3(0,20f,0));
+            transform.position = (new Vector3(0, 20f, 0));
             transform.rotation = Quaternion.identity;
+      
+         
             isGrounded = false;
         }
       
@@ -43,15 +55,33 @@ public class PlayerController : MonoBehaviour
             if (isGrounded){
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
+
+            
         }
+      
          
  
            
     }
 
+    void LateUpdate(){
+     
+
+    }
+
+
 
     // FixedUpdate is called according to framerate
     void FixedUpdate(){
+        if (direction != Vector3.zero) {
+                model.transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0.0f, camera.transform.localEulerAngles.y, 0.0f) * direction);
+        }
+
+        if (direction.x != 0 || direction.z != 0){
+            Vector3 v = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(v.x, camera.transform.rotation.eulerAngles.y, v.z);
+        }
+
         MoveCharacter(direction);
       
         if (!isGrounded){
@@ -64,8 +94,11 @@ public class PlayerController : MonoBehaviour
 
     void MoveCharacter(Vector3 movement){
         //rb.rotation = CameraController.GameObject.GetComponent<CameraController>().transform.localRotation;
+        
         movement = transform.TransformDirection(movement);
         rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
+        
+
     }
     // Fired when the player collide with another object
     void OnCollisionEnter(Collision collision)

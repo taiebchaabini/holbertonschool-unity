@@ -6,12 +6,15 @@ public class CutsceneController : MonoBehaviour
 {
     // Player GameObject
     private GameObject player;
+    // Player main camera
+    public GameObject camera;
     // TimerCanvas GameObject
     public GameObject timercanvas;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        this.startGame();
     }
 
     /// <summary>
@@ -19,7 +22,7 @@ public class CutsceneController : MonoBehaviour
     /// </summary>
     public void startGame(){
         player.GetComponent<PlayerController>().enabled = true;
-        player.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        camera.gameObject.SetActive(true);
         timercanvas.SetActive(true);
         this.gameObject.SetActive(false);
     }

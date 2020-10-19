@@ -9,7 +9,7 @@ public class WinTrigger : MonoBehaviour
         if (other.name == "Player"){
             other.GetComponent<Timer>().TimerText.fontSize = 60;
             other.GetComponent<Timer>().TimerText.color = Color.green;
-            if (other.GetComponent<Timer>().TimerText.enabled == true)
+            if (other.GetComponent<Timer>().TimerText && other.GetComponent<Timer>().TimerText.enabled == true)
                 other.GetComponent<Timer>().enabled = false;
             if (GameObject.Find("WinCanvas").GetComponent<Canvas>().enabled == false){
                 GameObject.Find("Player").GetComponent<Timer>().Win();
