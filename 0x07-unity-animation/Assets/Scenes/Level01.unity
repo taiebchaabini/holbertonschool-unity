@@ -1805,14 +1805,14 @@ PrefabInstance:
       propertyPath: TimerText
       value: 
       objectReference: {fileID: 6406150423331224899}
-    - target: {fileID: 1209920537, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1209920540, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 5763370734573175941}
+    - target: {fileID: 2073342914, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: db5f673d4fb4c3544a67ffa0ad0a6591, type: 3}
     - target: {fileID: 5763370734829766115, guid: 06a5c301141b7084c8996c0cde56814e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10657,50 +10657,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271521549}
   m_Mesh: {fileID: 8956276461189781062, guid: 6acca5b84d341fa4992d87addbf415d0, type: 3}
---- !u!1 &1273074515
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1273074517}
-  - component: {fileID: 1273074516}
-  m_Layer: 0
-  m_Name: SkyboxRotator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1273074516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273074515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71862f428ab70134c9bd534ede1903e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationPerSecond: 1
---- !u!4 &1273074517
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273074515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.104404, y: 16.607483, z: 68.39872}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280379276
 GameObject:
   m_ObjectHideFlags: 0
@@ -17267,6 +17223,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba47f1cd0d142354cbb56ce9f19d0742, type: 3}
   m_PrefabInstance: {fileID: 1193859381}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &199756431112780063
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.104404
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.607483
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 68.39872
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621258, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199756429902621260, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
+      propertyPath: m_Name
+      value: SkyboxRotator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c6448bcfe6f58e4a8e3d2356d6aa0b1, type: 3}
 --- !u!1001 &2765097844000340568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17274,10 +17287,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 439142901196448226, guid: 28d48b6344216f04a8048b07cd877169, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 439142901196448227, guid: 28d48b6344216f04a8048b07cd877169, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17378,10 +17387,6 @@ PrefabInstance:
     - target: {fileID: 2351195698625007689, guid: 0740fb5cc14f52d4bafbbb3ba93e18c1, type: 3}
       propertyPath: m_Name
       value: WinCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351195698625007692, guid: 0740fb5cc14f52d4bafbbb3ba93e18c1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2351195698625007693, guid: 0740fb5cc14f52d4bafbbb3ba93e18c1, type: 3}
       propertyPath: m_LocalPosition.x
