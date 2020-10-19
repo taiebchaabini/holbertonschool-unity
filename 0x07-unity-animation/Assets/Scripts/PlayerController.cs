@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Gets animator of the player when the game starts
+    static Animator anim;
     // Using camera gameobject
     public GameObject camera;
 
@@ -33,20 +35,19 @@ public class PlayerController : MonoBehaviour
         model = GameObject.Find("ty");
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
+        anim = GetComponent<Animator>();
     }
 
 
     // Update is called each frame
     void Update(){
         
-        
+         anim.SetBool("isGrounded", isGrounded);
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (transform.position.y < -20f){
             transform.position = (new Vector3(0, 20f, 0));
             transform.rotation = Quaternion.identity;
-      
-         
             isGrounded = false;
         }
       
@@ -95,8 +96,16 @@ public class PlayerController : MonoBehaviour
     void MoveCharacter(Vector3 movement){
         //rb.rotation = CameraController.GameObject.GetComponent<CameraController>().transform.localRotation;
         
+        if (movement != Vector3.zero){
+            anim.SetBool("isRunning", true);
+        } else{
+            anim.SetBool("isRunning", false);
+        }
+
         movement = transform.TransformDirection(movement);
         rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
+
+      
         
 
     }
