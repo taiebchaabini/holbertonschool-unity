@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1209920536}
   - component: {fileID: 2073342914}
   - component: {fileID: 1243188969844178830}
+  - component: {fileID: 1944022036}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -178,6 +179,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 0}
+--- !u!114 &1944022036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763370734829766115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e351a11fcff48439406b384df2f6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runningGrass: {fileID: 0}
+  runningRock: {fileID: 0}
 --- !u!1001 &5763370734445112204
 PrefabInstance:
   m_ObjectHideFlags: 0
