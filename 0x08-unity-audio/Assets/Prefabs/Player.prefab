@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f2ba6f07071c648bf4e1e41fe6a2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 0}
+  victorySound: {fileID: 0}
   TimerText: {fileID: 0}
 --- !u!95 &2073342914
 Animator:
@@ -178,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f2ba6f07071c648bf4e1e41fe6a2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 0}
+  victorySound: {fileID: 0}
   TimerText: {fileID: 0}
 --- !u!114 &1944022036
 MonoBehaviour:
@@ -192,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runningGrass: {fileID: 0}
-  runningRock: {fileID: 0}
+  falling: {fileID: 0}
 --- !u!1001 &5763370734445112204
 PrefabInstance:
   m_ObjectHideFlags: 0

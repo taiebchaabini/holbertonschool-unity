@@ -426,6 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75021141b2dc024aadabd0f1452ed63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Paused: {fileID: -4893778274284787071, guid: c877bead3f5c3364899ee7a94462f303, type: 2}
+  Unpaused: {fileID: 24500006, guid: c877bead3f5c3364899ee7a94462f303, type: 2}
 --- !u!1 &439142901741357598
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +440,7 @@ GameObject:
   - component: {fileID: 439142901741357594}
   - component: {fileID: 439142901741357597}
   - component: {fileID: 439142901741357596}
+  - component: {fileID: 1711871863}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -558,6 +561,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1711871863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439142901741357598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc37ad91b9e759448a0a948fe70c0564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2504400769369384833
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +664,7 @@ GameObject:
   - component: {fileID: 2504400770702376622}
   - component: {fileID: 2504400770702376617}
   - component: {fileID: 2504400770702376616}
+  - component: {fileID: 401387488}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -769,6 +785,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &401387488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504400770702376618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc37ad91b9e759448a0a948fe70c0564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2765097842980173816
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +809,7 @@ GameObject:
   - component: {fileID: 2765097842980173820}
   - component: {fileID: 2765097842980173819}
   - component: {fileID: 2765097842980173818}
+  - component: {fileID: 1496632211}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -901,6 +930,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1496632211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765097842980173816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc37ad91b9e759448a0a948fe70c0564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2765097843602282297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1112,7 @@ GameObject:
   - component: {fileID: 2765097844671386250}
   - component: {fileID: 2765097844671386249}
   - component: {fileID: 2765097844671386248}
+  - component: {fileID: 574439235}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1191,3 +1233,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &574439235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765097844671386262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc37ad91b9e759448a0a948fe70c0564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

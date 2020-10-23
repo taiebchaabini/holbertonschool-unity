@@ -7,6 +7,14 @@ using System;
 public class Timer : MonoBehaviour
 {
     /// <summary>
+    /// Main scene music
+    /// </summary>
+    public AudioSource BGM;
+    /// <summary>
+    /// Victory sound
+    /// </summary>
+    public AudioSource victorySound;
+    /// <summary>
     /// Default timer for the game
     /// </summary>
     public Text TimerText;
@@ -15,6 +23,7 @@ public class Timer : MonoBehaviour
     private decimal minutes;
     private String seconds;
     private String milliseconds;
+
 
 
     /// // Start is called before the first frame update
@@ -46,6 +55,8 @@ public class Timer : MonoBehaviour
     /// Updates the WinCanvas text when the payers win.
     /// </summary>
     public void Win(){
+        BGM.Pause();
+        victorySound.Play();
         GameObject.Find("FinalTime").GetComponent<Text>().text = TimerText.text;
     }
 }

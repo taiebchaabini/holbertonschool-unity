@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     // Determines if the game is paused or not.
     private bool gamePaused;
+    // Audiomixer paused snapshot
+    public AudioMixerSnapshot Paused;
+    // Audiomixer unpaused snapshot 
+    public AudioMixerSnapshot Unpaused;
     private void Start() {
         gamePaused = false;
     }
@@ -25,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     /// Pause the game.
     /// </summary>
     public void Pause(){
+        Paused.TransitionTo(0);
         gamePaused = true;
         Time.timeScale = 0;
         this.GetComponent<Canvas>().enabled  = true;
@@ -35,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume(){
         gamePaused = false;
         Time.timeScale = 1;
+        Unpaused.TransitionTo(0);
         this.GetComponent<Canvas>().enabled  = false;
         /*
         Debug.Log(PlayerPrefs.GetString("__isInveted__"));
