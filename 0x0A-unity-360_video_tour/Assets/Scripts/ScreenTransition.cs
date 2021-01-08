@@ -12,11 +12,12 @@ public class ScreenTransition : MonoBehaviour
     // Animation component and clip used for the fadeinout effect
     private Animation customAnimation;
 
+
     // Start is called before the first frame update
     void Start()
     {
        image = transform.Find("Image").gameObject;
-       customAnimation = image.GetComponent<Animation>();
+       customAnimation = transform.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -27,9 +28,20 @@ public class ScreenTransition : MonoBehaviour
         transform.position = mainCamera.transform.position;
     }
 
+    // Plays fadeInOut animation
     public void fadeInOut()
     {
         image.GetComponent<Image>().enabled = true;
         customAnimation.enabled = true;
+        
+        customAnimation.Play();
+    }
+    
+    // Used when the animation ends.
+    public void complete()
+    {
+        image.GetComponent<Image>().enabled = false;
+        customAnimation.enabled = false;
+        customAnimation.Stop();
     }
 }
