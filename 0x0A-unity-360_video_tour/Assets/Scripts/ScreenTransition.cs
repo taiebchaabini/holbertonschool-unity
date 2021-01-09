@@ -35,6 +35,7 @@ public class ScreenTransition : MonoBehaviour
         customAnimation.enabled = true;
         
         customAnimation.Play();
+        Debug.Log(gameObject.name);
     }
     
     // Used when the animation ends.
