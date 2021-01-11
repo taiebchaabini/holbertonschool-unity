@@ -5146,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 6602442596334211781, guid: f841ee42c0d68ed45ad133c33ec8d7b6,
         type: 3}
       propertyPath: depthScaleMultiplier
-      value: 0.035
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6602442596334211783, guid: f841ee42c0d68ed45ad133c33ec8d7b6,
         type: 3}
