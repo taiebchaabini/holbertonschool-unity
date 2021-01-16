@@ -1,6 +1,6 @@
 # Platformer 3D Game
 
-The game is built on Windows, Mac, or Linux. Execs are available in Builds directory
+The game is built on Windows, Mac, or Linux. Executables are available in Builds directory
 
 <p align="left">
   <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_2.png?raw=true" width="400" height="auto" title="Example">
