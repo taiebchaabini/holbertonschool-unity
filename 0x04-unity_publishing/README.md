@@ -1,4 +1,9 @@
 # MAZE
+
+The game is built on Windows, Mac, Linux, or Android. The executable are available in Builds directory
+
+![alt text](https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x04-unity_publishing/Assets/Images/maze_v1.png?raw=true)
+
 ## 0x04. Unity - Publishing
 ### General
 - How to publish a build
