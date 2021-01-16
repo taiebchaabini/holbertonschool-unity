@@ -3,11 +3,11 @@
 The game is built on Windows, Mac, or Linux. Execs are available in Builds directory
 
 <p align="left">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_2.png?raw=true" width="600" height="auto" title="Example">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_3.png?raw=true" width="600" height="auto" title="Example">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_4.png?raw=true" width="600" height="auto" title="Example">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_5.png?raw=true" width="600" height="auto" title="Example">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_1.png?raw=true" width="600" height="auto" title="Example">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_2.png?raw=true" width="400" height="auto" title="Example">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_3.png?raw=true" width="400" height="auto" title="Example">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_4.png?raw=true" width="400" height="auto" title="Example">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_5.png?raw=true" width="400" height="auto" title="Example">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_1.png?raw=true" width="400" height="auto" title="Example">
 </p>
 
 ### 0x07-UNITY-AUDIO
