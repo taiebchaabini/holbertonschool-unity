@@ -2,8 +2,8 @@
 
 The game is built on Windows, Mac, Linux, or Android. Execs are available in Builds directory
 
-<p align="center">
-  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x04-unity_publishing/Assets/Images/maze_v1.png?raw=true" width="350" title="Example">
+<p align="left">
+  <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x04-unity_publishing/Assets/Images/maze_v1.png?raw=true" width="450" title="Example">
 </p>
 
 ## 0x04. Unity - Publishing
