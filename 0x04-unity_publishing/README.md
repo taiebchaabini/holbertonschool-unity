@@ -1,5 +1,6 @@
-# 0x04. Unity - Publishing
-## General
+# MAZE
+## 0x04. Unity - Publishing
+### General
 - How to publish a build
 - How to reorder scenes in a build
 - How to build a standalone application for Windows, Mac, and Linux
