@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
 
+    private GameObject mainCamera;
+
 
 
     // Start is called before the first frame update
@@ -38,12 +40,16 @@ public class PlayerController : MonoBehaviour
     {
         move = 10f;
         isGrounded = true;
+        mainCamera = GameObject.Find("Main Camera"); 
     }
 
     // Update is called once per frame
     void Update()
     {
         move = Input.GetAxis("Horizontal");
+        if (transform.position.x - mainCamera.transform.position.x <= -2.59428 && move <= 0)
+            move = 0;
+
         jump = Input.GetAxis("Jump");
     }
 
@@ -78,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (isGrounded == true && jump != 0){
-             rb.AddForce((new Vector2(0,1) * 7), ForceMode2D.Impulse);
+             rb.AddForce((new Vector2(0,1) * 5), ForceMode2D.Impulse);
         }
         velocity = ((transform.position - previous).magnitude) / Time.deltaTime;
         previous = transform.position;
