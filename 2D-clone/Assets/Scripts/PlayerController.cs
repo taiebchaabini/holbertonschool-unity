@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private float velocity;
     // checks if the player is grounded
 
-    private bool isGrounded;
+    public bool isGrounded;
 
     private GameObject mainCamera;
 
@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
             move = 0;
 
         jump = Input.GetAxis("Jump");
+        animator.SetBool("isGrounded", isGrounded);
+
     }
 
     void FixedUpdate(){
@@ -83,11 +85,14 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.right * move * Time.deltaTime * speed, 0);
         }
 
-        if (isGrounded == true && jump != 0){
-             rb.AddForce((new Vector2(0,1) * 5), ForceMode2D.Impulse);
-        }
+ 
         velocity = ((transform.position - previous).magnitude) / Time.deltaTime;
         previous = transform.position;
+
+        if (isGrounded == true && jump != 0){
+            //  rb.AddForce((new Vector2(1, 10f)), ForceMode2D.Impulse);
+             rb.velocity = new Vector3(rb.velocity.x, 7f);
+        }
 
     }
 
