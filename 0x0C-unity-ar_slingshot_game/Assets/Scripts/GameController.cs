@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -31,6 +32,16 @@ public class GameController : MonoBehaviour
             StartGame();
         else
             plane.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void StartGame()
