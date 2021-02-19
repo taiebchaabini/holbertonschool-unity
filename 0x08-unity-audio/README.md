@@ -1,7 +1,16 @@
-# Platformer 3D Game
+# Platformer 3D 
 
-The game is built on Windows, Mac, or Linux. Executables are available in Builds directory
+## Description
+Platformer 3D is a prototype of a 3D game built on Unity for Holberton School (Academic Project). Player starts on an island and should reach the flag to pass the current level, the game is built on 3 levels, from the easiest to the hardest one. 
 
+## Builds
+The following executables are available in Builds directory:
+
+- Windows
+- Mac
+- Linux
+
+## Screenshots
 <p align="left">
   <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_2.png?raw=true" width="400" height="auto" title="Example">
   <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_3.png?raw=true" width="400" height="auto" title="Example">
@@ -10,9 +19,12 @@ The game is built on Windows, Mac, or Linux. Executables are available in Builds
   <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_1.png?raw=true" width="400" height="auto" title="Example">
 </p>
 
-### 0x07-UNITY-AUDIO
+## Tech used
+- C#
+- Unity3D
 
-#### Credits: 
+
+### Credits: 
 
 [Skyboxes: Farland Skies - Cloudy Crown](https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004)
 
