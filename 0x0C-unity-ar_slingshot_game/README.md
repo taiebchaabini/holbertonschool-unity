@@ -2,7 +2,9 @@
 
 Tech used for this project:
 
-- AR Foundation: 3.0.1
+- AR Foundation - 3.0.1
+- AR Subsystems - 3.1.10
+- ARCore XR Plugin - 3.1.10
 - Unity: 2019.4.16f1 LTS
 - ARKit XR Unity plugin and ARCore XR Unity plugin (to handle both iOS and Android builds)
 - 
