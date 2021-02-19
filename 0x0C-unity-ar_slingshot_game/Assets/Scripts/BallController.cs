@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
+
     private Vector3 mousePosition;
     private Vector3 mouseReleasePos;
 
-    //public static Vector3 porsh;
-
-    //public static Vector3 mousePosition;
+    public int ammo = 7;
 
     private Rigidbody rb;
 
@@ -19,12 +18,8 @@ public class BallController : MonoBehaviour
     [SerializeField]
     public SimulatePhysics PredictionLineManager;
 
-
-
     private LineRenderer line;
     private bool mouseClick = false;
-
- 
 
     void Start()
     {
@@ -33,7 +28,6 @@ public class BallController : MonoBehaviour
         line = GetComponent<LineRenderer>();
     }
 
-    
     private void OnMouseDown()
     {
         mousePosition = Input.mousePosition;
