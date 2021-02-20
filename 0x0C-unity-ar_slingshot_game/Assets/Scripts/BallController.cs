@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-
 
 public class BallController : MonoBehaviour
 {
@@ -11,21 +10,33 @@ public class BallController : MonoBehaviour
     public SimulatePhysics PredictionLineManager;
 
     public int ammo = 7;
+
     public float forceMultiplyer;
 
     private LineRenderer line;
+
     private bool mouseClick = false;
+
     private Vector3 mousePosition;
+
     private Vector3 mouseReleasePos;
 
     private Rigidbody rb;
+
     private GameObject Manager;
+
+    private Vector3 newPos;
+
+    private Camera cam;
+
+    private bool reloaded = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         line = GetComponent<LineRenderer>();
         Manager = GameObject.Find("Manager");
+        cam = Camera.main;
     }
 
     private void OnMouseDown()
@@ -38,18 +49,15 @@ public class BallController : MonoBehaviour
     {
         if (rb.velocity.z > 0f)
             line.positionCount = 0;
-
-        if (transform.position.y < -3f)
-        {
-            // transform.position = new Vector3(0, -0.03f, 2.13f);
-        }
     }
 
-    public void OnCollisionEnter(Collision collision){
+    public void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject.name == "Target(Clone)")
         {
             GameController.score += 10;
             UIController.scoreText.text = GameController.score.ToString();
+            Destroy(collision.gameObject);
         }
         rb.isKinematic = true;
         transform.position = new Vector3(999, 999, 999);
@@ -59,15 +67,34 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
-         if (mouseClick)
-            PredictionLineManager.LinePrediction( (mousePosition - Input.mousePosition) * forceMultiplyer, transform.localPosition);
+        // Helps to keep the ball following the camera for a better experience
+        if (reloaded) Reload();
+        if (mouseClick)
+            PredictionLineManager
+                .LinePrediction((mousePosition - Input.mousePosition) *
+                forceMultiplyer,
+                transform.localPosition);
+    }
+
+    public void Reload()
+    {
+        newPos = cam.transform.position;
+        newPos.x = Screen.width / 2;
+        newPos.z = 1.2f;
+        if (newPos.y < 80f) newPos.y = 80f;
+        if (newPos.y > 100f) newPos.y = 100f;
+        newPos = cam.ScreenToWorldPoint(newPos);
+        rb.isKinematic = true;
+        transform.position = newPos;
+        reloaded = true;
     }
 
     private void OnMouseUp()
     {
         mouseClick = false;
-        PredictionLineManager.Launch((mousePosition - Input.mousePosition) * forceMultiplyer, transform.gameObject);
+        reloaded = false;
+        PredictionLineManager
+            .Launch((mousePosition - Input.mousePosition) * forceMultiplyer,
+            transform.gameObject);
     }
-
-
 }

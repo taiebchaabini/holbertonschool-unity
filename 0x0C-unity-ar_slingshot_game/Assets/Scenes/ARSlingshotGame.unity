@@ -630,7 +630,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 704690064}
-        m_MethodName: DragAmmo
+        m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   plane: {fileID: 1323051194}
   targetPrefab: {fileID: 6301020439356234598, guid: 7a51a4c05bb21c1429bd27f4957d1f58,
     type: 3}
-  devMode: 1
+  devMode: 0
 --- !u!114 &1313999701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ae4c8c8128c2d4da5a34e522901224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1632120833}
 --- !u!1 &1323051194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359431350
@@ -2788,7 +2787,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058366132}
-  - component: {fileID: 2058366133}
   m_Layer: 5
   m_Name: List
   m_TagString: Untagged
@@ -2822,19 +2820,6 @@ RectTransform:
   m_AnchoredPosition: {x: 90, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2058366133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058366131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ed589268e4d9cd449f06195345a6586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: {fileID: 704690062}
 --- !u!1 &2111059613
 GameObject:
   m_ObjectHideFlags: 0
