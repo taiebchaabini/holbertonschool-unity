@@ -1509,6 +1509,7 @@ MonoBehaviour:
   plane: {fileID: 1323051194}
   targetPrefab: {fileID: 6301020439356234598, guid: 7a51a4c05bb21c1429bd27f4957d1f58,
     type: 3}
+  hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
   devMode: 0
 --- !u!114 &1313999701
 MonoBehaviour:
@@ -1562,7 +1563,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323051194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2027,6 +2028,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1313999700}
         m_MethodName: StartGame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1617507738}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

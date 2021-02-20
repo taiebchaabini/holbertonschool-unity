@@ -22,18 +22,20 @@ public class GameController : MonoBehaviour
     /// </summary>
     public GameObject targetPrefab;
 
-    // Plane mesh surface
-    private NavMeshSurface PlaneNavMesh;
+    public  Material hide;
     public bool devMode = false;
 
+    // Plane mesh surface
+    private NavMeshSurface PlaneNavMesh;
 
     // Start is called before the first frame update
     void Start()
     {
         if (devMode)
+        {
             StartGame();
-        else
-            plane.SetActive(false);
+            plane.SetActive(true);
+        }
     }
 
     public void RestartGame()
@@ -53,10 +55,14 @@ public class GameController : MonoBehaviour
         if (!devMode)
             plane = PlaneController.gamePlane.gameObject;
         
+        
         // Adding NavMeshSurface to ARPlane
         PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
         // Building Mesh on Runtime
         PlaneNavMesh.BuildNavMesh();
+
+        // Disables ARplane rendering
+        plane.GetComponent<MeshRenderer>().material = hide;
 
         for (int i = 0; i < targetNumbers; i++)
         {

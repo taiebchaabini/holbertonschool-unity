@@ -62,6 +62,8 @@ public class PlaneController : MonoBehaviour
         
         if (!StartPanel.activeInHierarchy && m_RaycastManager.Raycast(Input.GetTouch(0).position, m_Hits, TrackableType.PlaneWithinPolygon))
         {
+            // Removes bottom panel text
+            bottomText.text = "";
             // Disable the bottom text UI for better UX
             bottomText.transform.parent.gameObject.SetActive(false);
             // Enables start feature here
