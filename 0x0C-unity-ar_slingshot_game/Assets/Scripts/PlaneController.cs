@@ -30,6 +30,10 @@ public class PlaneController : MonoBehaviour
     /// Plane on which the game will be played, also used for placing targets in gameController script
     /// </summary>
     public static ARPlane gamePlane = null;
+    /// <summary>
+    /// Main ball of the game
+    /// </summary>
+    public GameObject ammo;
 
     // Used with raycasting for plane selection
     private List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
@@ -64,6 +68,8 @@ public class PlaneController : MonoBehaviour
             StartPanel.SetActive(true);
             // Get selected gamePlane
             gamePlane = m_ARPlaneManager.GetPlane(m_Hits[0].trackableId);
+            // Disables collision between the ball and ARplane
+            Physics.IgnoreCollision(gamePlane.GetComponent<Collider>(), ammo.GetComponent<Collider>());
             // Disable other planes
             foreach (var plane in m_ARPlaneManager.trackables) {
                 if (plane != gamePlane)
