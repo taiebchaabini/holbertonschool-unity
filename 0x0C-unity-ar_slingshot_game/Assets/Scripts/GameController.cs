@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public static int score = 0;
+
     /// <summary>
     /// Defines the number of target to create when the game starts
     /// </summary>

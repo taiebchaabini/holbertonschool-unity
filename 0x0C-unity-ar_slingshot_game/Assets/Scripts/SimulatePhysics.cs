@@ -24,7 +24,7 @@ public class SimulatePhysics : MonoBehaviour
     // Prediction game scene physics
     private PhysicsScene predictionScenePhysics;
     // Prediciton Scene parameters
-    private CreateSceneParameters sceneParams; 
+    private CreateSceneParameters sceneParams;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class SimulatePhysics : MonoBehaviour
 
         sceneParams = new CreateSceneParameters(LocalPhysicsMode.Physics3D);
         predictionScene = SceneManager.CreateScene("Prediction", sceneParams);
-        
+
         predictionScenePhysics = predictionScene.GetPhysicsScene();
     }
 
@@ -47,11 +47,12 @@ public class SimulatePhysics : MonoBehaviour
     {
         if (currentScenePhysics.IsValid())
             currentScenePhysics.Simulate(Time.fixedDeltaTime);
-        
+
     }
 
     public void Launch(Vector3 dir, GameObject target)
     {
+        target.GetComponent<Rigidbody>().isKinematic = false;
         target.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
         target.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 2f), ForceMode.Impulse);
     }
@@ -63,17 +64,22 @@ public class SimulatePhysics : MonoBehaviour
             SceneManager.MoveGameObjectToScene(ball, predictionScene);
         }
 
-       Launch(direction, ball);
-       
-       int step = 50;
-       line.positionCount = step;
-       line.SetPosition(0, ball.transform.localPosition);
+        ball.GetComponent<Rigidbody>().isKinematic = false;
+        Launch(direction, ball);
 
-       for (int i = 1; i < step; i++)
-       {
-           predictionScenePhysics.Simulate(Time.deltaTime);
-           line.SetPosition(i, ball.transform.localPosition);
-       }
-       Destroy(ball);
+        int step = 80;
+        line.positionCount = step;
+        line.SetPosition(0, ball.transform.localPosition);
+
+        for (int i = 1; i < step; i++)
+        {
+            if (subject.GetComponent<Rigidbody>().isKinematic)
+            {
+                predictionScenePhysics.Simulate(Time.deltaTime);
+                line.SetPosition(i, ball.transform.localPosition);
+            }
+
+        }
+        Destroy(ball);
     }
 }

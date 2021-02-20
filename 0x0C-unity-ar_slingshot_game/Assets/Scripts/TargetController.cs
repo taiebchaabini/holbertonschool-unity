@@ -21,7 +21,6 @@ public class TargetController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(transform.localPosition);
         if (timer >= waitTime)
         {
             Vector3 newPos = RandomNavSphere(transform.position, 5f, 1);
@@ -33,11 +32,9 @@ public class TargetController : MonoBehaviour
     public static Vector3 RandomNavSphere(Vector3 origin, float distance, int layermask)
     {
         Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * distance;
-
         randomDirection += origin;
 
         NavMeshHit navHit;
-
         NavMesh.SamplePosition(randomDirection, out navHit, distance, layermask);
 
         return navHit.position;
