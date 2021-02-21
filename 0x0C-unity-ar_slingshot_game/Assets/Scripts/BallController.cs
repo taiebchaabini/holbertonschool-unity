@@ -75,7 +75,8 @@ public class BallController : MonoBehaviour
         rotation = Quaternion.AngleAxis(cameraRot.x, Vector3.forward);
         direction = rotation * direction;
 
-        direction = direction * forceMultiplyer;
+     
+        direction = new Vector3(Mathf.Abs(direction.x), direction.y, direction.z) * forceMultiplyer;
         return (direction);
     }
 

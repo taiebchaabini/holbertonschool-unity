@@ -51,9 +51,7 @@ public class SimulatePhysics : MonoBehaviour
     public void Launch(Vector3 dir, GameObject target)
     {
         target.GetComponent<Rigidbody>().isKinematic = false;
-        // target.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, dir.y * 4f), ForceMode.Impulse);
         target.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
-        // target.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 1f), ForceMode.Impulse);
     }
     public void LinePrediction(Vector3 direction)
     {

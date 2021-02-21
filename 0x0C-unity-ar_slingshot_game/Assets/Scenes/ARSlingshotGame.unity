@@ -827,10 +827,35 @@ PrefabInstance:
       propertyPath: PredictionLineManager
       value: 
       objectReference: {fileID: 1313999698}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.96165466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.094335556
+      objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
