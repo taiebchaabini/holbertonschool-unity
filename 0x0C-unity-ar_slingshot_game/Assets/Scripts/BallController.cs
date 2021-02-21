@@ -94,6 +94,7 @@ public class BallController : MonoBehaviour
     {
         mouseClick = false;
         reloaded = false;
+        line.positionCount = 0;
         PredictionLineManager.Launch(CalculDirection(), transform.gameObject);
     }
 }
