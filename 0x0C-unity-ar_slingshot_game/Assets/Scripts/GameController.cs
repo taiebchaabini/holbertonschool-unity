@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     public GameObject targetPrefab;
 
-    public  Material hide;
+    public Material hide;
     public bool devMode = false;
 
     // Plane mesh surface
@@ -51,8 +51,8 @@ public class GameController : MonoBehaviour
         // Get the ARPlane, works only if dev mode is not active
         if (!devMode)
             plane = PlaneController.gamePlane.gameObject;
-        
-        
+
+
         // Adding NavMeshSurface to ARPlane
         PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
         // Building Mesh on Runtime
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
             Vector3 randomDir = Random.insideUnitSphere * 0.6f;
             randomDir.x += plane.transform.position.x;
             randomDir.z += plane.transform.position.z;
-            
+
             GameObject t = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity, plane.transform) as GameObject;
             t.GetComponent<NavMeshAgent>().Warp(new Vector3(randomDir.x, plane.transform.position.y, randomDir.z));
             t.transform.localPosition += new Vector3(0, 0.1f, 0);

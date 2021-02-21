@@ -16,7 +16,7 @@ public class BallController : MonoBehaviour
     private Vector3 newPos;
     private Camera cam;
     private bool reloaded = false;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,10 +53,28 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
+
         // Helps to keep the ball following the camera for a better experience
-        if (reloaded) Reload();
+        if (reloaded)
+            Reload();
         if (mouseClick)
-            PredictionLineManager.LinePrediction((mousePosition - Input.mousePosition) * forceMultiplyer, transform.localPosition);
+        {
+            PredictionLineManager.LinePrediction(CalculDirection());
+        }
+    }
+
+    public Vector3 CalculDirection()
+    {
+        Vector3 cameraRot = Camera.main.transform.eulerAngles;
+        var rotation = Quaternion.AngleAxis(cameraRot.y, Vector3.up);
+
+        Vector3 a = mousePosition;
+        Vector3 b = Input.mousePosition;
+        Vector3 direction = rotation * (a - b);
+        direction = Quaternion.AngleAxis(cameraRot.x, Vector3.forward) * direction;
+
+        direction = direction * forceMultiplyer;
+        return (direction);
     }
 
     public void Reload()
@@ -76,6 +94,6 @@ public class BallController : MonoBehaviour
     {
         mouseClick = false;
         reloaded = false;
-        PredictionLineManager.Launch((mousePosition - Input.mousePosition) * forceMultiplyer, transform.gameObject);
+        PredictionLineManager.Launch(CalculDirection(), transform.gameObject);
     }
 }
