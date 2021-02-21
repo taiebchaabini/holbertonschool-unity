@@ -68,10 +68,12 @@ public class BallController : MonoBehaviour
         Vector3 cameraRot = Camera.main.transform.eulerAngles;
         var rotation = Quaternion.AngleAxis(cameraRot.y, Vector3.up);
 
-        Vector3 a = mousePosition;
-        Vector3 b = Input.mousePosition;
-        Vector3 direction = rotation * (a - b);
-        direction = Quaternion.AngleAxis(cameraRot.x, Vector3.forward) * direction;
+        // Rotation on the Y
+        Vector3 direction = rotation * (mousePosition - Input.mousePosition);
+
+        
+        rotation = Quaternion.AngleAxis(cameraRot.x, Vector3.forward);
+        direction = rotation * direction;
 
         direction = direction * forceMultiplyer;
         return (direction);
