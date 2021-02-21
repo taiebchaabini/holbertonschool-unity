@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -21,7 +20,7 @@ public class PlaneController : MonoBehaviour
     /// <summary>
     /// Bottom text user for UI
     /// </summary>
-    public TMP_Text bottomText; 
+    public TMP_Text bottomText;
     /// <summary>
     /// Start button used to init the game
     /// </summary>
@@ -59,7 +58,7 @@ public class PlaneController : MonoBehaviour
 
         if (Input.touchCount == 0)
             return;
-        
+
         if (!StartPanel.activeInHierarchy && m_RaycastManager.Raycast(Input.GetTouch(0).position, m_Hits, TrackableType.PlaneWithinPolygon))
         {
             // Removes bottom panel text
@@ -73,7 +72,8 @@ public class PlaneController : MonoBehaviour
             // Disables collision between the ball and ARplane
             Physics.IgnoreCollision(gamePlane.GetComponent<Collider>(), ammo.GetComponent<Collider>());
             // Disable other planes
-            foreach (var plane in m_ARPlaneManager.trackables) {
+            foreach (var plane in m_ARPlaneManager.trackables)
+            {
                 if (plane != gamePlane)
                     plane.gameObject.SetActive(false);
             }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
@@ -10,27 +6,17 @@ public class BallController : MonoBehaviour
     public SimulatePhysics PredictionLineManager;
 
     public int ammo = 7;
-
     public float forceMultiplyer;
-
     private LineRenderer line;
-
     private bool mouseClick = false;
-
     private Vector3 mousePosition;
-
     private Vector3 mouseReleasePos;
-
     private Rigidbody rb;
-
     private GameObject Manager;
-
     private Vector3 newPos;
-
     private Camera cam;
-
     private bool reloaded = false;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -70,10 +56,7 @@ public class BallController : MonoBehaviour
         // Helps to keep the ball following the camera for a better experience
         if (reloaded) Reload();
         if (mouseClick)
-            PredictionLineManager
-                .LinePrediction((mousePosition - Input.mousePosition) *
-                forceMultiplyer,
-                transform.localPosition);
+            PredictionLineManager.LinePrediction((mousePosition - Input.mousePosition) * forceMultiplyer, transform.localPosition);
     }
 
     public void Reload()
@@ -93,8 +76,6 @@ public class BallController : MonoBehaviour
     {
         mouseClick = false;
         reloaded = false;
-        PredictionLineManager
-            .Launch((mousePosition - Input.mousePosition) * forceMultiplyer,
-            transform.gameObject);
+        PredictionLineManager.Launch((mousePosition - Input.mousePosition) * forceMultiplyer, transform.gameObject);
     }
 }

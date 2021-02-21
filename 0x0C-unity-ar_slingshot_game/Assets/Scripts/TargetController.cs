@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class TargetController : MonoBehaviour
@@ -14,7 +12,7 @@ public class TargetController : MonoBehaviour
     void Start()
     {
         waitTime = 0.5f;
-        timer = waitTime;   
+        timer = waitTime;
     }
 
     // Update is called once per frame
