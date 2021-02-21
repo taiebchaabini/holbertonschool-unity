@@ -52,6 +52,7 @@ public class SimulatePhysics : MonoBehaviour
     {
         target.GetComponent<Rigidbody>().isKinematic = false;
         target.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
+        Debug.Log(dir);
     }
     public void LinePrediction(Vector3 direction)
     {
@@ -61,7 +62,7 @@ public class SimulatePhysics : MonoBehaviour
             SceneManager.MoveGameObjectToScene(ball, predictionScene);
         }
 
-     
+
         ball.GetComponent<Rigidbody>().isKinematic = false;
         Launch(direction, ball);
 
