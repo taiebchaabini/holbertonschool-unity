@@ -891,6 +891,41 @@ PrefabInstance:
       objectReference: {fileID: 1313999698}
     - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
+      propertyPath: m_Parameters.shadowBias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d93f34227ad07b428e883d590ee3433, type: 2}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Parameters.generateLightingData
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
       value: 0.96165466
       objectReference: {fileID: 0}
@@ -899,6 +934,11 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.094335556
       objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514348, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e644465d89daa346aa4e6073c810fe7, type: 2}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_RootOrder
@@ -1500,7 +1540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1306625044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1570,7 +1610,6 @@ GameObject:
   - component: {fileID: 1313999699}
   - component: {fileID: 1313999700}
   - component: {fileID: 1313999698}
-  - component: {fileID: 1313999701}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1639,20 +1678,13 @@ MonoBehaviour:
   plane: {fileID: 1323051194}
   targetPrefab: {fileID: 6301020439356234598, guid: 7a51a4c05bb21c1429bd27f4957d1f58,
     type: 3}
+  gameUI:
+  - {fileID: 1397510441}
+  - {fileID: 1631484428}
+  - {fileID: 1985017938}
+  - {fileID: 1359431348}
   hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
   devMode: 0
---- !u!114 &1313999701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313999696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ae4c8c8128c2d4da5a34e522901224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1323051194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1359431349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1883,7 +1915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1397510442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2333,7 +2365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1631484429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2688,7 +2720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1985017939
 RectTransform:
   m_ObjectHideFlags: 0

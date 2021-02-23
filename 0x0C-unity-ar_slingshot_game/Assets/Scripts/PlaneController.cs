@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 using TMPro;
 public class PlaneController : MonoBehaviour
 {
@@ -33,7 +34,6 @@ public class PlaneController : MonoBehaviour
     /// Main ball of the game
     /// </summary>
     public GameObject ammo;
-
     // Used with raycasting for plane selection
     private List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
     // List of available planes
@@ -41,10 +41,12 @@ public class PlaneController : MonoBehaviour
     // Determines if one or more planes are detected since the game has start
     private bool planeDetected = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
         bottomText.text = "Searching for a surface...";
+        bottomText.transform.parent.GetComponent<Image>().color = new Color(80f, 189f, 70f, 230f);
     }
 
     void Update()
@@ -54,6 +56,8 @@ public class PlaneController : MonoBehaviour
             // Changing UI text when a plane is selectable for a better user experience
             planeDetected = true;
             bottomText.text = "SELECT A PLANE";
+            // Sets bottomPanel color to green
+            bottomText.transform.parent.GetComponent<Image>().color = new Color(80f, 189f, 70f, 230f);
         }
 
         if (Input.touchCount == 0)
@@ -67,17 +71,17 @@ public class PlaneController : MonoBehaviour
             bottomText.transform.parent.gameObject.SetActive(false);
             // Enables start feature here
             StartPanel.SetActive(true);
-            // Get selected gamePlane
+            // Get the selected gamePlane
             gamePlane = m_ARPlaneManager.GetPlane(m_Hits[0].trackableId);
             // Disables collision between the ball and ARplane
             Physics.IgnoreCollision(gamePlane.GetComponent<Collider>(), ammo.GetComponent<Collider>());
-            // Disable other planes
+            // Disables other planes
             foreach (var plane in m_ARPlaneManager.trackables)
             {
                 if (plane != gamePlane)
                     plane.gameObject.SetActive(false);
             }
-            // Disable plane detection
+            // Disables plane detection
             m_ARPlaneManager.enabled = false;
         }
 

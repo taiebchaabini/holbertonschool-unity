@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class BallController : MonoBehaviour
 {
     [SerializeField]
@@ -24,6 +24,7 @@ public class BallController : MonoBehaviour
         line = GetComponent<LineRenderer>();
         Manager = GameObject.Find("Manager");
         cam = Camera.main;
+        line.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
     }
 
     private void OnMouseDown()
@@ -43,13 +44,13 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.name == "Target(Clone)")
         {
             GameController.score += 10;
-            UIController.scoreText.text = GameController.score.ToString();
+            GameObject.Find("ScoreText").GetComponent<TMP_Text>().text = GameController.score.ToString();
             Destroy(collision.gameObject);
         }
         rb.isKinematic = true;
         transform.position = new Vector3(999, 999, 999);
         ammo -= 1;
-        Destroy(UIController.list.transform.GetChild(ammo).gameObject);
+        Destroy(GameObject.Find("List").transform.GetChild(ammo).gameObject);
     }
 
     public void Update()

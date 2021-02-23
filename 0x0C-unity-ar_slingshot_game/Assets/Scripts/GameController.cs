@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,11 @@ public class GameController : MonoBehaviour
     /// Target prefab used to init targets
     /// </summary>
     public GameObject targetPrefab;
+
+    /// <summary>
+    /// GameObject to be enabled when the game starts
+    /// </summary>
+    public List<GameObject> gameUI;
 
     public Material hide;
     public bool devMode = false;
@@ -52,7 +58,8 @@ public class GameController : MonoBehaviour
         if (!devMode)
             plane = PlaneController.gamePlane.gameObject;
 
-
+        foreach (var UI in gameUI)
+            UI.SetActive(true);
         // Adding NavMeshSurface to ARPlane
         PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
         // Building Mesh on Runtime
