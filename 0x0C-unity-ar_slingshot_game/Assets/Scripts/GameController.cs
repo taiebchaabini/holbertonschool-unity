@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour
         if (!devMode)
             plane = PlaneController.gamePlane.gameObject;
 
+        // Disables the startpanel
+        GameObject.Find("StartPanel").SetActive(false);
         foreach (var UI in gameUI)
             UI.SetActive(true);
         // Adding NavMeshSurface to ARPlane

@@ -46,7 +46,6 @@ public class PlaneController : MonoBehaviour
     void Start()
     {
         bottomText.text = "Searching for a surface...";
-        bottomText.transform.parent.GetComponent<Image>().color = new Color(80f, 189f, 70f, 230f);
     }
 
     void Update()
@@ -57,7 +56,7 @@ public class PlaneController : MonoBehaviour
             planeDetected = true;
             bottomText.text = "SELECT A PLANE";
             // Sets bottomPanel color to green
-            bottomText.transform.parent.GetComponent<Image>().color = new Color(80f, 189f, 70f, 230f);
+            bottomText.transform.parent.GetComponent<Image>().color = new Color(0.3176471f, 0.7490196f, 0.2784314f, 0.8f);
         }
 
         if (Input.touchCount == 0)
