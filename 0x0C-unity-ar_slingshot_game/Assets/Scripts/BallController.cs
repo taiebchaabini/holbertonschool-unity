@@ -50,12 +50,11 @@ public class BallController : MonoBehaviour
         rb.isKinematic = true;
         transform.position = new Vector3(999, 999, 999);
         ammo -= 1;
-        Destroy(GameObject.Find("List").transform.GetChild(ammo).gameObject);
+        GameObject.Find("List").transform.GetChild(ammo).gameObject.SetActive(false);
     }
 
     public void Update()
     {
-
         // Helps to keep the ball following the camera for a better experience
         if (reloaded)
             Reload();

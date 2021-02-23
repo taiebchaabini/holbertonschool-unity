@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
 
     public Material hide;
     public bool devMode = false;
+    public static bool gameStarted = false;
 
     // Plane mesh surface
     private NavMeshSurface PlaneNavMesh;
@@ -43,7 +44,25 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        gameStarted = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PlayAgain()
+    {
+        // Resets game score to 0
+        score = 0;
+        // Resets ammo 
+        GameObject.Find("Ammo").GetComponent<BallController>().ammo = 7;
+        // Resets ammo UI
+        foreach (Transform child in GameObject.Find("List").transform)
+            child.gameObject.SetActive(true);
+        // Cleaning up all targets
+        foreach (Transform child in plane.transform)
+            Destroy(child.gameObject);
+
+        StartGame();
+        GameObject.Find("PlayAgain").SetActive(false);
     }
 
     public void QuitGame()
@@ -53,6 +72,7 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        gameStarted = true;
         // GameObject.Find("StartPanel").SetActive(false);
         // Get the ARPlane, works only if dev mode is not active
         if (!devMode)

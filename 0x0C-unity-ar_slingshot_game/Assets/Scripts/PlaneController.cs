@@ -62,7 +62,7 @@ public class PlaneController : MonoBehaviour
         if (Input.touchCount == 0)
             return;
 
-        if (!StartPanel.activeInHierarchy && m_RaycastManager.Raycast(Input.GetTouch(0).position, m_Hits, TrackableType.PlaneWithinPolygon))
+        if (!GameController.gameStarted && m_RaycastManager.Raycast(Input.GetTouch(0).position, m_Hits, TrackableType.PlaneWithinPolygon))
         {
             // Removes bottom panel text
             bottomText.text = "";
