@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour
     private LineRenderer line;
     private bool mouseClick = false;
     private Vector3 mousePosition;
+    private Vector3 mouseCurPosition;
     private Vector3 mouseReleasePos;
     private Rigidbody rb;
     private GameObject Manager;
@@ -58,22 +59,21 @@ public class BallController : MonoBehaviour
         if (reloaded)
             Reload();
         if (mouseClick)
-        {
             PredictionLineManager.LinePrediction(CalculDirection());
-        }
     }
 
     public Vector3 CalculDirection()
     {
         Vector3 cameraRot = Camera.main.transform.eulerAngles;
-        var rotation = Quaternion.AngleAxis(cameraRot.y, Vector3.up);
+        // var rotation = Quaternion.AngleAxis(cameraRot.y, Vector3.up);
 
         // Rotation on the Y
-        Vector3 direction = rotation * (mousePosition - Input.mousePosition);
-        
-        rotation = Quaternion.AngleAxis(cameraRot.z, Vector3.forward);
-        direction = (rotation * direction) * forceMultiplyer;
-     
+        Vector3 direction = (mousePosition - Input.mousePosition) * forceMultiplyer;
+
+        // Makes the direction relative to camera view
+        direction = Camera.main.transform.TransformDirection(direction);
+        // rotation = Quaternion.AngleAxis(cameraRot.z, Vector3.forward);
+
         return (direction);
     }
 
@@ -97,4 +97,6 @@ public class BallController : MonoBehaviour
         line.positionCount = 0;
         PredictionLineManager.Launch(CalculDirection(), transform.gameObject);
     }
+
+
 }

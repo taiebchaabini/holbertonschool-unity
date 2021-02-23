@@ -52,7 +52,7 @@ public class SimulatePhysics : MonoBehaviour
     {
         target.GetComponent<Rigidbody>().isKinematic = false;
         target.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
-        Debug.Log(dir);
+        target.GetComponent<Rigidbody>().AddForce(Camera.main.transform.TransformDirection(Vector3.forward * dir.y * 5f), ForceMode.Impulse);
     }
     public void LinePrediction(Vector3 direction)
     {
