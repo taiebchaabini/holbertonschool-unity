@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Prediction.unity
     guid: 4f3254e07e790a4408feb34a850729c5
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 29aaf8691d07d6543b4fe82d6208b246,
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 4a2b97fabe2ff014485aec4d3881706e,
       type: 2}
     com.unity.xr.arkit.PlayerSettings: {fileID: 11400000, guid: 61e42de0544988d4298492488548b272,
       type: 2}

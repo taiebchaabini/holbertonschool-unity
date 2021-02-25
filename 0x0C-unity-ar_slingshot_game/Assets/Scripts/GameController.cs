@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine.AI;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    /// <summary>
+    /// Defines if the player is playing or not
+    /// </summary>
+    public static bool gameStarted = false;
     public static int score = 0;
-
     /// <summary>
     /// Defines the number of target to create when the game starts
     /// </summary>
@@ -24,10 +27,15 @@ public class GameController : MonoBehaviour
     /// GameObject to be enabled when the game starts
     /// </summary>
     public List<GameObject> gameUI;
-
+    /// <summary>
+    /// Material used to make the ARPlane invisible
+    /// </summary>
     public Material hide;
+    /// <summary>
+    /// Enables development mode which enable plane and ui for testing purpose
+    /// </summary>
     public bool devMode = false;
-    public static bool gameStarted = false;
+
 
     // Plane mesh surface
     private NavMeshSurface PlaneNavMesh;
@@ -37,22 +45,22 @@ public class GameController : MonoBehaviour
     {
         if (devMode)
         {
+            // UI to block
+            var filterUI = new List<string> { "PlayAgain", "StartPanel", "BottomPanel" };
+            // Simulates UI used when the game starts
+            foreach (Transform child in GameObject.Find("UI").transform)
+                child.gameObject.SetActive(!filterUI.Contains(child.gameObject.name));
+
             StartGame();
             plane.SetActive(true);
-        }
-    }
 
-    public void RestartGame()
-    {
-        gameStarted = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void PlayAgain()
     {
         // Resets game score to 0
         score = 0;
-        // Resets ammo 
         GameObject.Find("Ammo").GetComponent<BallController>().ammo = 7;
         // Resets ammo UI
         foreach (Transform child in GameObject.Find("List").transform)
@@ -70,30 +78,38 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
+    public void RestartGame()
+    {
+        gameStarted = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void StartGame()
     {
         gameStarted = true;
         // GameObject.Find("StartPanel").SetActive(false);
         // Get the ARPlane, works only if dev mode is not active
         if (!devMode)
+        {
             plane = PlaneController.gamePlane.gameObject;
+            // Disables the startpanel
+            GameObject.Find("StartPanel").SetActive(false);
+            // Disables ARplane rendering
+            plane.GetComponent<MeshRenderer>().material = hide;
+        }
 
-        // Disables the startpanel
-        GameObject.Find("StartPanel").SetActive(false);
-        foreach (var UI in gameUI)
-            UI.SetActive(true);
         // Adding NavMeshSurface to ARPlane
         PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
         // Building Mesh on Runtime
         PlaneNavMesh.BuildNavMesh();
 
-        // Disables ARplane rendering
-        plane.GetComponent<MeshRenderer>().material = hide;
+        foreach (var UI in gameUI)
+            UI.SetActive(true);
+
 
         for (int i = 0; i < targetNumbers; i++)
         {
             // 0.5f is the agent radius
-            Vector3 randomDir = Random.insideUnitSphere * 0.6f;
+            Vector3 randomDir = Random.insideUnitSphere * 1.6f;
             randomDir.x += plane.transform.position.x;
             randomDir.z += plane.transform.position.z;
 

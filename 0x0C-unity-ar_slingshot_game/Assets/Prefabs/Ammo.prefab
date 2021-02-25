@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aadd5a709a48466c887296bb5b1b8110, type: 2}
+  - {fileID: 2100000, guid: 88b1c6a4e1a3f6148953d9651f68b69d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,9 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff5b1a62381ce74fa41244e851d5e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PredictionLineManager: {fileID: 0}
   ammo: 7
   forceMultiplyer: 0.03
-  PredictionLineManager: {fileID: 0}
 --- !u!54 &5821491683410514351
 Rigidbody:
   m_ObjectHideFlags: 0
