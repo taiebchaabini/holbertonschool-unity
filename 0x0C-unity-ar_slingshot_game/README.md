@@ -7,3 +7,5 @@ Tech used for this project:
 - ARCore XR Plugin - 3.1.10
 - Unity: 2019.4.16f1 LTS
 - ARKit XR Unity plugin and ARCore XR Unity plugin (to handle both iOS and Android builds)
+
+

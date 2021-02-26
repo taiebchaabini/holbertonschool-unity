@@ -71,6 +71,7 @@ public class GameController : MonoBehaviour
 
         StartGame();
         GameObject.Find("PlayAgain").SetActive(false);
+        GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
     }
 
     public void QuitGame()
@@ -86,6 +87,7 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         gameStarted = true;
+        GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
         // GameObject.Find("StartPanel").SetActive(false);
         // Get the ARPlane, works only if dev mode is not active
         if (!devMode)

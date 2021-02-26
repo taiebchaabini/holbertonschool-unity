@@ -15,7 +15,6 @@ public class RandomWalk : MonoBehaviour
 
     void Update()
     {
-        transform.Find("Bunny").LookAt(Camera.main.transform, transform.forward);
 
         if (m_Agent.pathPending || m_Agent.remainingDistance > 0.1f)
             return;
