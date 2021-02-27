@@ -68,6 +68,19 @@ public class BallController : MonoBehaviour
             line.positionCount = 0;
     }
 
+    public void checkGameOver()
+    {
+        if (ammo <= 0)
+        {
+            reloaded = false;
+            leaderBoard.SetActive(true);
+            gameOver.Play();
+            GameObject.Find("StartSound").GetComponent<AudioSource>().Stop();
+            rb.isKinematic = true;
+            transform.position = new Vector3(999, 999, 999);
+        }
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Target(Clone)")
@@ -77,27 +90,32 @@ public class BallController : MonoBehaviour
             GameObject.Find("ScoreText").GetComponent<TMP_Text>().text = GameController.score.ToString();
             Destroy(collision.gameObject);
             if (collision.gameObject.transform.parent.transform.childCount - 1 == 0)
+            {
+                ammo = 7;
+                // Resets ammo UI
+                foreach (Transform child in GameObject.Find("List").transform)
+                    child.gameObject.SetActive(true);
                 GameObject.Find("Manager").GetComponent<GameController>().initTargets();
+            }
         }
         else if (ammo > 1)
             targetMiss.Play();
-            
+
         Reload(true);
-        if (ammo <= 0)
-        {
-            reloaded = false;
-            leaderBoard.SetActive(true);
-            gameOver.Play();
-            GameObject.Find("StartSound").GetComponent<AudioSource>().Stop();
-            rb.isKinematic = true;
-            transform.position = new Vector3(-999, -999, -999);
-        }
+        checkGameOver();
     }
 
     public void Update()
     {
         if (reloaded)
             Reload(false);
+        if (GameController.gameStarted && transform.position.y < PlaneController.gamePlane.center.y)
+        {
+            if (ammo > 1)
+                targetMiss.Play();
+            Reload(true);
+            checkGameOver();
+        }
         if (mouseClick)
         {
             //Vector3 z = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;

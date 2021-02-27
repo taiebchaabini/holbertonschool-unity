@@ -201,6 +201,10 @@ MonoBehaviour:
   ammo: 7
   forceMultiplyer: 0.03
   launch: {fileID: 0}
+  targetMiss: {fileID: 0}
+  targetHit: {fileID: 0}
+  gameOver: {fileID: 0}
+  leaderBoard: {fileID: 0}
 --- !u!54 &5821491683410514351
 Rigidbody:
   m_ObjectHideFlags: 0

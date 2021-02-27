@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.ARFoundation;
 
 public class GameController : MonoBehaviour
 {
@@ -89,7 +90,6 @@ public class GameController : MonoBehaviour
     }
     public void StartGame()
     {
-        gameStarted = true;
         GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
         // GameObject.Find("StartPanel").SetActive(false);
         // Get the ARPlane, works only if dev mode is not active
@@ -113,6 +113,7 @@ public class GameController : MonoBehaviour
             UI.SetActive(true);
 
         initTargets();
+        gameStarted = true;
     }
 
     public void initTargets()
@@ -121,8 +122,8 @@ public class GameController : MonoBehaviour
         {
             // 0.5f is the agent radius
             Vector3 randomDir = Random.insideUnitSphere * 1.6f;
-            randomDir.x += plane.transform.position.x;
-            randomDir.z += plane.transform.position.z;
+            randomDir.x += plane.GetComponent<ARPlane>().center.x;
+            randomDir.z += plane.GetComponent<ARPlane>().center.z;
 
             GameObject t = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity, plane.transform) as GameObject;
             t.GetComponent<NavMeshAgent>().Warp(new Vector3(randomDir.x, plane.transform.position.y, randomDir.z));

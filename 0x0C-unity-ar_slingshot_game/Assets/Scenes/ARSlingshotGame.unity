@@ -148,7 +148,7 @@ RectTransform:
   m_GameObject: {fileID: 20250382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1317350457}
   - {fileID: 689754995}
@@ -549,8 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: -1
-  m_LightEstimationMode: -1
+  m_FocusMode: 1
+  m_LightEstimationMode: 0
 --- !u!114 &112418533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_PoseProviderComponent: {fileID: 0}
   m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 1
+  m_UseRelativeTransform: 0
 --- !u!4 &112418534
 Transform:
   m_ObjectHideFlags: 0
@@ -1622,45 +1622,6 @@ LineRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 897543513}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &704690067
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704690062}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 5195427c0d27644ed90d87ebe86d468a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1001 &897543513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1668,11 +1629,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2543213026488829785, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 5821491683410514344, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_Name
@@ -1690,19 +1646,9 @@ PrefabInstance:
       objectReference: {fileID: 2096670519}
     - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
-      propertyPath: playAgain
-      value: 
-      objectReference: {fileID: 20250382}
-    - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
       propertyPath: targetHit
       value: 
       objectReference: {fileID: 48346439}
-    - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
-      propertyPath: missTarget
-      value: 
-      objectReference: {fileID: 1287791043}
     - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: targetMiss
@@ -1718,10 +1664,15 @@ PrefabInstance:
       propertyPath: PredictionLineManager
       value: 
       objectReference: {fileID: 1313999698}
-    - target: {fileID: 5821491683410514347, guid: eddb0bfb74c7197469d38c18e8b20f59,
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
@@ -1731,17 +1682,17 @@ PrefabInstance:
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9999
+      value: -999
       objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9999
+      value: -999
       objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9999
+      value: -999
       objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
@@ -2882,7 +2833,7 @@ MonoBehaviour:
   - {fileID: 1359431348}
   leaderBoard: {fileID: 20250382}
   hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
-  devMode: 1
+  devMode: 0
 --- !u!1 &1317350456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,7 +3833,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3915,7 +3866,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
