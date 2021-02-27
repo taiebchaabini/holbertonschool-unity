@@ -1686,7 +1686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leaderBoardController
       value: 
-      objectReference: {fileID: 1313999701}
+      objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_RootOrder
@@ -2862,7 +2862,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313999696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c11691756566ae47af5cf4b272b1a03, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ccc63f2a06363843929076e5b770d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leaderBoardItems:

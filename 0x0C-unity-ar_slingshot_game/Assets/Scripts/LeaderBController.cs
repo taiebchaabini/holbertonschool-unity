@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LeaderBoardController : MonoBehaviour
+public class LeaderBController : MonoBehaviour
 {
     public List<GameObject> leaderBoardItems;
     public List<int> scores;
     // Start is called before the first frame update
     public void updateScores(int newScore)
     {
+        scores = new List<int>{};
         int i = 0;
         foreach (GameObject item in leaderBoardItems)
             scores.Add(int.Parse(PlayerPrefs.GetString(item.name, "0")));

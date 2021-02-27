@@ -43,7 +43,7 @@ public class BallController : MonoBehaviour
 
     [SerializeField]
 
-    public LeaderBoardController leaderBoardController;
+    public LeaderBController leaderBoardController;
     // MaxBall Y position on drag
     private float maxBallY;
     // Line used to draw the trajectory line
