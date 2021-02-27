@@ -46,6 +46,8 @@ public class BallController : MonoBehaviour
     private Rigidbody rb;
     // newPos used to handle new ball position
     private Vector3 newPos;
+    // Keeps the ball in the center of the screen when reloaded
+    private bool reloaded = false;
 
     void Start()
     {
@@ -91,6 +93,8 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
+        if (reloaded)
+            Reload(false);
         if (mouseClick)
         {
             //Vector3 z = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;
@@ -101,7 +105,6 @@ public class BallController : MonoBehaviour
             if (y.y > maxBallY)
                 y.y = maxBallY;
             transform.position = y;
-            Debug.Log(y);
             PredictionLineManager.LinePrediction(CalculDirection());
         }
     }
@@ -131,10 +134,12 @@ public class BallController : MonoBehaviour
         maxBallY = newPos.y;
         rb.isKinematic = true;
         transform.position = newPos;
+        reloaded = true;
     }
 
     private void OnMouseUp()
     {
+        reloaded = false;
         launch.Play();
         mouseClick = false;
         line.positionCount = 0;
