@@ -43,6 +43,8 @@ public class GameController : MonoBehaviour
     public bool devMode = false;
     // Plane mesh surface
     private NavMeshSurface PlaneNavMesh;
+    // Plane position
+    private Vector3 planePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -105,7 +107,7 @@ public class GameController : MonoBehaviour
             // Building Mesh on Runtime
             PlaneNavMesh.BuildNavMesh();
         }
-        
+
         // Position the ball in the center of the screen for first launch
         GameObject.Find("Ammo").GetComponent<BallController>().Reload(false);
 
@@ -114,20 +116,25 @@ public class GameController : MonoBehaviour
 
         initTargets();
         gameStarted = true;
+        Destroy(plane);
     }
 
     public void initTargets()
     {
+        if (devMode)
+            planePosition = plane.transform.position;
+        else
+            planePosition = plane.GetComponent<ARPlane>().center;
         for (int i = 0; i < targetNumbers; i++)
         {
             // 0.5f is the agent radius
             Vector3 randomDir = Random.insideUnitSphere * 1.6f;
-            randomDir.x += plane.GetComponent<ARPlane>().center.x;
-            randomDir.z += plane.GetComponent<ARPlane>().center.z;
+            randomDir.x += planePosition.x;
+            randomDir.z += planePosition.z;
 
             GameObject t = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity, plane.transform) as GameObject;
-            t.GetComponent<NavMeshAgent>().Warp(new Vector3(randomDir.x, plane.transform.position.y, randomDir.z));
-            t.transform.localPosition += new Vector3(0, 0.1f, 0);
+            t.GetComponent<NavMeshAgent>().Warp(new Vector3(randomDir.x, planePosition.y, randomDir.z));
+            t.transform.localPosition -= new Vector3(0, 0.1f, 0);
             t.GetComponent<NavMeshAgent>().enabled = true;
         }
     }

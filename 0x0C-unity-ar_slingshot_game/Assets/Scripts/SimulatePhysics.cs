@@ -78,6 +78,5 @@ public class SimulatePhysics : MonoBehaviour
                 line.SetPosition(i, ball.transform.position);
             }
         }
-        Destroy(ball);
     }
 }

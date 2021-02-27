@@ -35,8 +35,14 @@ public class BallController : MonoBehaviour
     /// Button used at the end of the game to play again.
     /// </summary>
     public GameObject leaderBoard;
-    // Line used to draw the trajectory line
+    // Used to check if the game is DEV mode or not
+    [SerializeField]
+
+    public GameController gameController;
+    // MaxBall Y position on drag
     private float maxBallY;
+    // Line used to draw the trajectory line
+
     private LineRenderer line;
     // checks if the mouse is actually pressed
     private bool mouseClick = false;
@@ -107,21 +113,23 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
-        if (reloaded)
+        if (reloaded || gameController.devMode && transform.position.y < -10f)
             Reload(false);
-        if (GameController.gameStarted && transform.position.y < PlaneController.gamePlane.center.y)
+        if (!gameController.devMode)
         {
-            if (ammo > 1)
-                targetMiss.Play();
-            Reload(true);
-            checkGameOver();
+            if (GameController.gameStarted && transform.position.y < PlaneController.gamePlane.center.y)
+            {
+                if (ammo > 1)
+                    targetMiss.Play();
+                Reload(true);
+                checkGameOver();
+            }
         }
         if (mouseClick)
         {
-            //Vector3 z = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;
-            Vector3 y = transform.position + new Vector3(0, -transform.position.z, 0) * CalculDirection().y * forceMultiplyer;
+            Vector3 y = transform.position + new Vector3(0, 0, transform.position.z) * -CalculDirection().y * forceMultiplyer * 2;
             y = Camera.main.WorldToViewportPoint(y);
-            y.y = Mathf.Clamp01(y.y);
+            y.z = Mathf.Clamp01(y.z);
             y = Camera.main.ViewportToWorldPoint(y);
             if (y.y > maxBallY)
                 y.y = maxBallY;
@@ -134,6 +142,7 @@ public class BallController : MonoBehaviour
     {
         // Rotation on the Y
         Vector3 direction = (mousePosition - Input.mousePosition) * forceMultiplyer;
+
         // Makes the direction relative to camera view
         direction = Camera.main.transform.TransformDirection(direction);
         return (direction);

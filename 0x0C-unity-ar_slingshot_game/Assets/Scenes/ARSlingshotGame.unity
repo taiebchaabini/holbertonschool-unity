@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 112418533}
   - component: {fileID: 112418532}
   - component: {fileID: 112418531}
+  - component: {fileID: 112418535}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -583,6 +584,18 @@ Transform:
   m_Father: {fileID: 1105974328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112418535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112418529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a362256b786764395e2be6b238dd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &134714387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,19 +1674,14 @@ PrefabInstance:
       objectReference: {fileID: 20250382}
     - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1313999700}
+    - target: {fileID: 5821491683410514345, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
       propertyPath: PredictionLineManager
       value: 
       objectReference: {fileID: 1313999698}
-    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821491683410514346, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_RootOrder
@@ -2833,7 +2841,7 @@ MonoBehaviour:
   - {fileID: 1359431348}
   leaderBoard: {fileID: 20250382}
   hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
-  devMode: 0
+  devMode: 1
 --- !u!1 &1317350456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,7 +3841,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3866,7 +3874,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
