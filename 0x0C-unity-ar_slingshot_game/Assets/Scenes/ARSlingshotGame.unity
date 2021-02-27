@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_PoseProviderComponent: {fileID: 0}
   m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 0
+  m_UseRelativeTransform: 1
 --- !u!4 &112418534
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,6 +1737,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5821491683410514351, guid: eddb0bfb74c7197469d38c18e8b20f59,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eddb0bfb74c7197469d38c18e8b20f59, type: 3}
 --- !u!1 &930971660
@@ -2841,7 +2846,7 @@ MonoBehaviour:
   - {fileID: 1359431348}
   leaderBoard: {fileID: 20250382}
   hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
-  devMode: 1
+  devMode: 0
 --- !u!1 &1317350456
 GameObject:
   m_ObjectHideFlags: 0

@@ -126,14 +126,13 @@ public class BallController : MonoBehaviour
 
         if (mouseClick)
         {
-            // Vector3 y = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;
-            // y = Camera.main.transform.TransformDirection(y);
-            // y = Camera.main.WorldToViewportPoint(y);
-            // y.y = Mathf.Clamp01(y.y);
-            // y = Camera.main.ViewportToWorldPoint(y);
-            // if (y.y > maxBallY)
-            //     y.y = maxBallY;
-            // transform.position = y;
+            Vector3 y = transform.position + new Vector3(0, transform.position.y, 0) * CalculDirection().y * forceMultiplyer * 2;
+            y = Camera.main.WorldToViewportPoint(y);
+            y.y = Mathf.Clamp01(y.y);
+            y = Camera.main.ViewportToWorldPoint(y);
+            if (y.y > maxBallY)
+                y.y = maxBallY;
+            transform.position = y;
             PredictionLineManager.LinePrediction(CalculDirection());
         }
 
