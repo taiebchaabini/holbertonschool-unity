@@ -30,7 +30,8 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Used to show the leaderboard when the game is over and contains an anchored button to play again without starting a new ARplane detection.
     /// </summary>
-    public GameObject leaderBord;
+    public GameObject leaderBoard;
+
     /// <summary>
     /// Material used to make the ARPlane invisible
     /// </summary>
@@ -72,7 +73,7 @@ public class GameController : MonoBehaviour
             Destroy(child.gameObject);
 
         StartGame();
-        leaderBord.SetActive(false);
+        leaderBoard.SetActive(false);
         GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
     }
 
@@ -92,25 +93,30 @@ public class GameController : MonoBehaviour
         GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
         // GameObject.Find("StartPanel").SetActive(false);
         // Get the ARPlane, works only if dev mode is not active
-        if (!devMode)
+        if (!devMode && !gameStarted)
         {
             plane = PlaneController.gamePlane.gameObject;
             // Disables the startpanel
             GameObject.Find("StartPanel").SetActive(false);
             // Disables ARplane rendering
             plane.GetComponent<MeshRenderer>().material = hide;
+            // Adding NavMeshSurface to ARPlane
+            PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
+            // Building Mesh on Runtime
+            PlaneNavMesh.BuildNavMesh();
         }
+        
         // Position the ball in the center of the screen for first launch
         GameObject.Find("Ammo").GetComponent<BallController>().Reload(false);
-        // Adding NavMeshSurface to ARPlane
-        PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
-        // Building Mesh on Runtime
-        PlaneNavMesh.BuildNavMesh();
 
         foreach (var UI in gameUI)
             UI.SetActive(true);
 
+        initTargets();
+    }
 
+    public void initTargets()
+    {
         for (int i = 0; i < targetNumbers; i++)
         {
             // 0.5f is the agent radius
@@ -123,6 +129,5 @@ public class GameController : MonoBehaviour
             t.transform.localPosition += new Vector3(0, 0.1f, 0);
             t.GetComponent<NavMeshAgent>().enabled = true;
         }
-
     }
 }

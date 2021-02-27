@@ -2880,7 +2880,7 @@ MonoBehaviour:
   - {fileID: 1631484428}
   - {fileID: 1985017938}
   - {fileID: 1359431348}
-  leaderBord: {fileID: 20250382}
+  leaderBoard: {fileID: 20250382}
   hide: {fileID: 2100000, guid: c7a797f79f52096449926b59c34d2fec, type: 2}
   devMode: 1
 --- !u!1 &1317350456
