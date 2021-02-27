@@ -113,29 +113,31 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
-        if (reloaded || gameController.devMode && transform.position.y < -10f)
+        if (reloaded)
             Reload(false);
-        if (!gameController.devMode)
+
+        if (!gameController.devMode && GameController.gameStarted && transform.position.y < PlaneController.gamePlane.center.y)
         {
-            if (GameController.gameStarted && transform.position.y < PlaneController.gamePlane.center.y)
-            {
-                if (ammo > 1)
-                    targetMiss.Play();
-                Reload(true);
-                checkGameOver();
-            }
+            if (ammo > 1)
+                targetMiss.Play();
+            Reload(true);
+            checkGameOver();
         }
+
         if (mouseClick)
         {
-            Vector3 y = transform.position + new Vector3(0, 0, transform.position.z) * -CalculDirection().y * forceMultiplyer * 2;
-            y = Camera.main.WorldToViewportPoint(y);
-            y.z = Mathf.Clamp01(y.z);
-            y = Camera.main.ViewportToWorldPoint(y);
-            if (y.y > maxBallY)
-                y.y = maxBallY;
-            transform.position = y;
+            // Vector3 y = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;
+            // y = Camera.main.transform.TransformDirection(y);
+            // y = Camera.main.WorldToViewportPoint(y);
+            // y.y = Mathf.Clamp01(y.y);
+            // y = Camera.main.ViewportToWorldPoint(y);
+            // if (y.y > maxBallY)
+            //     y.y = maxBallY;
+            // transform.position = y;
             PredictionLineManager.LinePrediction(CalculDirection());
         }
+
+
     }
 
     public Vector3 CalculDirection()

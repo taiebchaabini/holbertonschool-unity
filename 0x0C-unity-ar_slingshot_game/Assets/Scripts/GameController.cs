@@ -116,7 +116,6 @@ public class GameController : MonoBehaviour
 
         initTargets();
         gameStarted = true;
-        Destroy(plane);
     }
 
     public void initTargets()
