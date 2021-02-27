@@ -39,6 +39,11 @@ public class BallController : MonoBehaviour
     [SerializeField]
 
     public GameController gameController;
+    // Used to update leaderboard's score
+
+    [SerializeField]
+
+    public LeaderBoardController leaderBoardController;
     // MaxBall Y position on drag
     private float maxBallY;
     // Line used to draw the trajectory line
@@ -78,6 +83,7 @@ public class BallController : MonoBehaviour
     {
         if (ammo <= 0)
         {
+            leaderBoardController.updateScores(GameController.score);
             reloaded = false;
             leaderBoard.SetActive(true);
             gameOver.Play();
