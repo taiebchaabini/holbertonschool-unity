@@ -28,6 +28,10 @@ public class GameController : MonoBehaviour
     /// </summary>
     public List<GameObject> gameUI;
     /// <summary>
+    /// Used to show the leaderboard when the game is over and contains an anchored button to play again without starting a new ARplane detection.
+    /// </summary>
+    public GameObject leaderBord;
+    /// <summary>
     /// Material used to make the ARPlane invisible
     /// </summary>
     public Material hide;
@@ -35,8 +39,6 @@ public class GameController : MonoBehaviour
     /// Enables development mode which enable plane and ui for testing purpose
     /// </summary>
     public bool devMode = false;
-
-
     // Plane mesh surface
     private NavMeshSurface PlaneNavMesh;
 
@@ -46,7 +48,7 @@ public class GameController : MonoBehaviour
         if (devMode)
         {
             // UI to block
-            var filterUI = new List<string> { "PlayAgain", "StartPanel", "BottomPanel" };
+            var filterUI = new List<string> { "LeaderBoard", "StartPanel", "BottomPanel" };
             // Simulates UI used when the game starts
             foreach (Transform child in GameObject.Find("UI").transform)
                 child.gameObject.SetActive(!filterUI.Contains(child.gameObject.name));
@@ -70,7 +72,7 @@ public class GameController : MonoBehaviour
             Destroy(child.gameObject);
 
         StartGame();
-        GameObject.Find("PlayAgain").SetActive(false);
+        leaderBord.SetActive(false);
         GameObject.Find("StartSound").GetComponent<AudioSource>().Play();
     }
 
@@ -98,7 +100,8 @@ public class GameController : MonoBehaviour
             // Disables ARplane rendering
             plane.GetComponent<MeshRenderer>().material = hide;
         }
-
+        // Position the ball in the center of the screen for first launch
+        GameObject.Find("Ammo").GetComponent<BallController>().Reload(false);
         // Adding NavMeshSurface to ARPlane
         PlaneNavMesh = plane.AddComponent<NavMeshSurface>();
         // Building Mesh on Runtime

@@ -63,7 +63,6 @@ public class SimulatePhysics : MonoBehaviour
             SceneManager.MoveGameObjectToScene(ball, predictionScene);
         }
 
-
         ball.GetComponent<Rigidbody>().isKinematic = false;
         Launch(direction, ball);
 

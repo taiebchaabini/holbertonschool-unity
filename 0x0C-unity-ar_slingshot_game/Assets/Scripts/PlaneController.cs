@@ -73,7 +73,7 @@ public class PlaneController : MonoBehaviour
             // Get the selected gamePlane
             gamePlane = m_ARPlaneManager.GetPlane(m_Hits[0].trackableId);
             // Disables collision between the ball and ARplane
-            Physics.IgnoreCollision(gamePlane.GetComponent<Collider>(), ammo.GetComponent<Collider>());
+            // Physics.IgnoreCollision(gamePlane.GetComponent<Collider>(), ammo.GetComponent<Collider>());
             // Disables other planes
             foreach (var plane in m_ARPlaneManager.trackables)
             {

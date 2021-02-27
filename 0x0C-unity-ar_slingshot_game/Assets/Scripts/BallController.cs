@@ -34,8 +34,9 @@ public class BallController : MonoBehaviour
     /// <summary>
     /// Button used at the end of the game to play again.
     /// </summary>
-    public GameObject playAgain;
+    public GameObject leaderBoard;
     // Line used to draw the trajectory line
+    private float maxBallY;
     private LineRenderer line;
     // checks if the mouse is actually pressed
     private bool mouseClick = false;
@@ -45,14 +46,11 @@ public class BallController : MonoBehaviour
     private Rigidbody rb;
     // newPos used to handle new ball position
     private Vector3 newPos;
-    // Checks if the ball has reloaded
-    private bool reloaded = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         line = GetComponent<LineRenderer>();
-        Reload();
         line.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
     }
 
@@ -77,21 +75,13 @@ public class BallController : MonoBehaviour
             GameObject.Find("ScoreText").GetComponent<TMP_Text>().text = GameController.score.ToString();
             Destroy(collision.gameObject);
         }
-        else
-        {
+        else if (ammo > 1)
             targetMiss.Play();
-        }
-        rb.isKinematic = true;
-        transform.position = new Vector3(999, 999, 999);
-        ammo -= 1;
-        if (ammo >= 0)
+            
+        Reload(true);
+        if (ammo <= 0)
         {
-            GameObject.Find("List").transform.GetChild(ammo).gameObject.SetActive(false);
-            Reload();
-        }
-        else
-        {
-            playAgain.SetActive(true);
+            leaderBoard.SetActive(true);
             gameOver.Play();
             GameObject.Find("StartSound").GetComponent<AudioSource>().Stop();
             rb.isKinematic = true;
@@ -101,11 +91,19 @@ public class BallController : MonoBehaviour
 
     public void Update()
     {
-        // Helps to keep the ball following the camera for a better experience
-        if (reloaded)
-            Reload();
         if (mouseClick)
+        {
+            //Vector3 z = transform.position + new Vector3(0, transform.position.z, 0) * -CalculDirection().y * forceMultiplyer * 2;
+            Vector3 y = transform.position + new Vector3(0, -transform.position.z, 0) * CalculDirection().y * forceMultiplyer;
+            y = Camera.main.WorldToViewportPoint(y);
+            y.y = Mathf.Clamp01(y.y);
+            y = Camera.main.ViewportToWorldPoint(y);
+            if (y.y > maxBallY)
+                y.y = maxBallY;
+            transform.position = y;
+            Debug.Log(y);
             PredictionLineManager.LinePrediction(CalculDirection());
+        }
     }
 
     public Vector3 CalculDirection()
@@ -117,24 +115,28 @@ public class BallController : MonoBehaviour
         return (direction);
     }
 
-    public void Reload()
+    public void Reload(bool useAmmo)
     {
+        if (useAmmo)
+        {
+            ammo -= 1;
+            GameObject.Find("List").transform.GetChild(ammo).gameObject.SetActive(false);
+        }
+        rb.isKinematic = true;
         newPos = Camera.main.transform.position;
         newPos.x = Screen.width / 2;
         newPos.z = 1.2f;
-        if (newPos.y < 80f) newPos.y = 80f;
-        if (newPos.y > 100f) newPos.y = 100f;
+        newPos.y = Screen.height / 3;
         newPos = Camera.main.ScreenToWorldPoint(newPos);
+        maxBallY = newPos.y;
         rb.isKinematic = true;
         transform.position = newPos;
-        reloaded = true;
     }
 
     private void OnMouseUp()
     {
         launch.Play();
         mouseClick = false;
-        reloaded = false;
         line.positionCount = 0;
         PredictionLineManager.Launch(CalculDirection(), transform.gameObject);
     }
