@@ -8,6 +8,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     public SimulatePhysics PredictionLineManager;
     /// <summary>
+    /// Sets up the ball default material when the game starts
+    /// </summary>
+    public Material defaultMat;
+    /// <summary>
     /// Number of ammo in the game
     /// </summary>
     public int ammo = 7;
@@ -65,6 +69,7 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         line = GetComponent<LineRenderer>();
         line.GetComponent<Renderer>().material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+        this.GetComponent<MeshRenderer>().material = defaultMat;
     }
 
     private void OnMouseDown()
@@ -101,14 +106,14 @@ public class BallController : MonoBehaviour
             GameController.score += 10;
             GameObject.Find("ScoreText").GetComponent<TMP_Text>().text = GameController.score.ToString();
             Destroy(collision.gameObject);
-            if (collision.gameObject.transform.parent.transform.childCount - 1 == 0)
-            {
-                ammo = 7;
-                // Resets ammo UI
-                foreach (Transform child in GameObject.Find("List").transform)
-                    child.gameObject.SetActive(true);
-                GameObject.Find("Manager").GetComponent<GameController>().initTargets();
-            }
+            // if (collision.gameObject.transform.parent.transform.childCount - 1 == 0)
+            // {
+            //     ammo = 7;
+            //     // Resets ammo UI
+            //     foreach (Transform child in GameObject.Find("List").transform)
+            //         child.gameObject.SetActive(true);
+            //     GameObject.Find("Manager").GetComponent<GameController>().initTargets();
+            // }
         }
         else if (ammo > 1)
             targetMiss.Play();

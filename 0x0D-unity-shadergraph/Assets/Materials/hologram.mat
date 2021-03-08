@@ -26,7 +26,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_87CF6D57: {r: 0, g: 4, b: 1.584343, a: 0}
+    - Color_87CF6D57: {r: 0, g: 1.172774, b: 3.999999, a: 0}
 --- !u!114 &5867183184736966857
 MonoBehaviour:
   m_ObjectHideFlags: 11

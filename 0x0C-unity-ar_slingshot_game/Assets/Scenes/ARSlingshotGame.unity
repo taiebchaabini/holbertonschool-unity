@@ -569,7 +569,7 @@ MonoBehaviour:
   m_PoseProviderComponent: {fileID: 0}
   m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 1
+  m_UseRelativeTransform: 0
 --- !u!4 &112418534
 Transform:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112418529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1105974328}
@@ -1686,7 +1686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leaderBoardController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1313999701}
     - target: {fileID: 5821491683410514350, guid: eddb0bfb74c7197469d38c18e8b20f59,
         type: 3}
       propertyPath: m_RootOrder
@@ -1741,11 +1741,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821491683410514351, guid: eddb0bfb74c7197469d38c18e8b20f59,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eddb0bfb74c7197469d38c18e8b20f59, type: 3}
