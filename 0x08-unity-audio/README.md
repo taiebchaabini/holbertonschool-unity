@@ -3,13 +3,6 @@
 ## Description
 Platformer 3D is a prototype of a 3D game built on Unity for Holberton School (Academic Project). Player starts on an island and should reach the flag to pass the current level, the game is built on 3 levels, from the easiest to the hardest one. 
 
-## Builds
-The following executables are available in Builds directory:
-
-- Windows
-- Mac
-- Linux
-
 ## Screenshots
 <p align="left">
   <img src="https://github.com/taiebchaabini/holbertonschool-unity/blob/master/0x08-unity-audio/Assets/Images/platformer_2.png?raw=true" width="400" height="auto" title="Example">
@@ -23,6 +16,13 @@ The following executables are available in Builds directory:
 - C#
 - Unity3D
 
+
+## Builds
+The following executables are available in Builds directory:
+
+- Windows
+- Mac
+- Linux
 
 ### Credits: 
 
